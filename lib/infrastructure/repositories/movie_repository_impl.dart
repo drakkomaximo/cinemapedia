@@ -7,6 +7,8 @@ class MovieRepositoryImpl extends MoviesRepositories {
 
   MovieRepositoryImpl(this.datasource);
 
+  get searchMovie => null;
+
   @override
   Future<List<Movie>> getNowPlaying({int page = 1}) {
     return datasource.getNowPlaying(page: page);
@@ -30,5 +32,10 @@ class MovieRepositoryImpl extends MoviesRepositories {
   @override
   Future<Movie> getMovieById(String id) {
     return datasource.getMovieById(id);
+  }
+  
+  @override
+  Future<List<Movie>> searchMovies(String query) {
+    return datasource.searchMovies(query);
   }
 }
